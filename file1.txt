@@ -1,4 +1,5 @@
 file1
 esse arquivo é para teste.
 Estou testando os fundamentos do git.
-
+Agora estou atualizando o file 1 com mais strings,
+tudo para fins de aprendizado. Tchau!
