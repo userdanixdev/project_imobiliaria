@@ -1,0 +1,4 @@
+file1
+esse arquivo é para teste.
+Estou testando os fundamentos do git.
+
