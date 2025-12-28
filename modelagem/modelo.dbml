@@ -1,0 +1,42 @@
+
+_cliente {
+	_nome text
+	_cpf integer pk increments unique
+	_telefone integer
+	_endereco integer
+}
+
+_imovel {
+	id_imovel integer pk increments unique
+	_endereco integer
+	tipo_imovel integer
+	valor_base float
+	id_proprietario integer > null.id
+}
+
+_proprietario {
+	id_proprietario integer pk increments unique
+	_nome text
+	_cpf integer
+	_telefone integer
+	id_contrato integer >* _contrato.id_contrato
+}
+
+_corretor {
+	id_corretor integer pk increments unique
+	_nome text
+	_cpf integer
+	_creci integer
+	_telefone integer
+}
+
+_contrato {
+	id_contrato integer pk increments unique
+	data_assinatura date
+	valor_transacao float
+	tipo_contrato string
+	id_cliente integer >* _cliente._cpf
+	id_imovel integer >* _imovel.id_imovel
+	id_corretor integer >* _corretor.id_corretor
+}
+

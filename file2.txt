@@ -1,6 +1,0 @@
-O arquivo file2 será inserido conteúd
-para fins de aprendizado. Além disso,
-será colocado na zona de rastreio e po fim
-será colocado no projeto do git local.
-amém
-Estou tentando sair do buffer, mas está dando erro agora
