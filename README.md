@@ -114,8 +114,7 @@ projeto-imobiliaria/
 |   ├── data.base.py
 |   ├── modelo.dbml
 |── requirements.txt
-└── assets/
-    └── diagramas/
+
 ```
 
 ## 📌 Autor
