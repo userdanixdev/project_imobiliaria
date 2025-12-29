@@ -134,8 +134,7 @@ conda create -n imobiliaria-env python=3.11
 ## 📌 Autor
 Daniel Martins França
 
-**email:** f.daniel.m@gmail.com
-**Linkedin** www.linkedin.com/in/danixdev
-**Portifólio** https://danixdev.blogspot.com/
-**+ Portifólio** https://padlet.com/fdanielm/danix_dev
-
+**email:** f.daniel.m@gmail.com  
+**Linkedin:** www.linkedin.com/in/danixdev  
+**Portifólio:** https://danixdev.blogspot.com/  
+**+ Portifólio:** https://padlet.com/fdanielm/danix_dev
