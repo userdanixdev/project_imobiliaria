@@ -65,6 +65,8 @@ O projeto **não contempla**, neste momento:
 - **SQLite** – banco de dados para ambiente de desenvolvimento
 - **Conda** – gerenciamento de ambiente virtual
 - **Git e GitHub** – versionamento e controle do código-fonte
+- **DB Designer Web** - modelagem de dados
+- **BR Modelo Web** - modelagem de dados
 
 ---
 
@@ -113,13 +115,12 @@ projeto-imobiliaria/
 |   ├── create_tables.py
 |   ├── data.base.py
 |   ├── modelo.dbml
+|   ├── mer_james_martin.png
+|   ├── mer_peter_chen.jpg
+|── .gitignore
 |── requirements.txt
 
 ```
-
-## 📌 Autor
-Daniel M. F.
-
 ## ⚙️ Ambiente Virtual
 
 O projeto utiliza um ambiente virtual gerenciado pelo Conda.
@@ -128,3 +129,12 @@ O projeto utiliza um ambiente virtual gerenciado pelo Conda.
 ```bash
 conda create -n imobiliaria-env python=3.11
 ```
+
+## 📌 Autor
+Daniel Martins França
+
+**email:** f.daniel.m@gmail.com
+**Linkedin** www.linkedin.com/in/danixdev
+**Portifólio** https://danixdev.blogspot.com/
+**+ Portifólio** https://padlet.com/fdanielm/danix_dev
+

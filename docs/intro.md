@@ -15,3 +15,4 @@ Com o objetivo de informatizar suas operações, a empresa necessita de um model
 banco de dados bem estruturado, iniciando pelo desenvolvimento de um
 **Modelo de Entidade-Relacionamento (MER)**, que permita organizar, padronizar e
 representar corretamente as informações do negócio.
+
