@@ -51,6 +51,7 @@ O projeto contempla:
 - Preparação da base para consultas e relatórios futuros
 
 O projeto **não contempla**, neste momento:
+
 - Interface gráfica
 - Integração com sistemas externos
 - Camada de aplicação web ou mobile
@@ -61,9 +62,9 @@ O projeto **não contempla**, neste momento:
 
 - **Python** – linguagem principal do projeto
 - **SQLAlchemy** – ORM para implementação do modelo lógico do banco de dados
-- **DBML (Database Markup Language)** – documentação e visualização da modelagem
+- **DBML (Database Markup Language)** – códigos da modelagem
 - **SQLite** – banco de dados para ambiente de desenvolvimento
-- **Conda** – gerenciamento de ambiente virtual
+- **Conda** – gerenciamento de pacotes e do ambiente virtual
 - **Git e GitHub** – versionamento e controle do código-fonte
 - **DB Designer Web** - modelagem de dados
 - **BR Modelo Web** - modelagem de dados
