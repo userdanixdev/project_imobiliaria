@@ -1,0 +1,568 @@
+2026-05-24 12:53:24,143 | INFO | Iniciando teste de CRUD de cliente
+2026-05-24 12:53:24,189 | INFO | BEGIN (implicit)
+2026-05-24 12:53:24,193 | INFO | INSERT INTO clientes (nome, cpf, telefone) VALUES (?, ?, ?)
+2026-05-24 12:53:24,194 | INFO | [generated in 0.00080s] ('Maria Silva', '1234578900', '119999999')
+2026-05-24 12:53:24,198 | INFO | COMMIT
+2026-05-24 12:53:24,210 | INFO | BEGIN (implicit)
+2026-05-24 12:53:24,225 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 12:53:24,229 | INFO | [generated in 0.00381s] (1,)
+2026-05-24 12:53:24,231 | INFO | SUCESSO | Cliente criado: id=1,nome=Maria Silva, cpf=1234578900, telefone=119999999
+2026-05-24 12:53:24,237 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes
+2026-05-24 12:53:24,240 | INFO | [generated in 0.00341s] ()
+2026-05-24 12:53:24,242 | INFO | SUCESSO | Listagem de clientes executada. Total encontrado: 1
+2026-05-24 12:53:24,244 | INFO | SUCESSO | Cliente encontrado por ID: id=1,nome=Maria Silva
+2026-05-24 12:53:24,246 | INFO | UPDATE clientes SET telefone=? WHERE clientes.id_cliente = ?
+2026-05-24 12:53:24,247 | INFO | [generated in 0.00070s] ('11888888888', 1)
+2026-05-24 12:53:24,256 | INFO | COMMIT
+2026-05-24 12:53:24,262 | INFO | BEGIN (implicit)
+2026-05-24 12:53:24,263 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 12:53:24,277 | INFO | [cached since 0.05184s ago] (1,)
+2026-05-24 12:53:24,278 | INFO | SUCESSO | Cliente Atualizado: id =1,telefone=11888888888
+2026-05-24 12:53:24,283 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_cliente
+2026-05-24 12:53:24,291 | INFO | [generated in 0.00892s] (1,)
+2026-05-24 12:53:24,296 | INFO | DELETE FROM clientes WHERE clientes.id_cliente = ?
+2026-05-24 12:53:24,297 | INFO | [generated in 0.00098s] (1,)
+2026-05-24 12:53:24,304 | INFO | COMMIT
+2026-05-24 12:53:24,311 | INFO | SUCESSO | Cliente deletado com sucesso
+2026-05-24 12:53:24,311 | INFO | Teste de CRUD de cliente finalizado
+2026-05-24 13:20:35,282 | INFO | Iniciando teste de CRUD de proprietario
+2026-05-24 13:20:35,315 | INFO | BEGIN (implicit)
+2026-05-24 13:20:35,319 | INFO | INSERT INTO proprietarios (nome, cpf) VALUES (?, ?)
+2026-05-24 13:20:35,320 | INFO | [generated in 0.00081s] ('Joao Proprietario', '11122233344')
+2026-05-24 13:20:35,324 | INFO | COMMIT
+2026-05-24 13:20:35,333 | INFO | BEGIN (implicit)
+2026-05-24 13:20:35,339 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:20:35,340 | INFO | [generated in 0.00112s] (1,)
+2026-05-24 13:20:35,343 | INFO | SUCESSO | Proprietario criado: id=1, nome=Joao Proprietario, cpf=11122233344
+2026-05-24 13:20:35,345 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios
+2026-05-24 13:20:35,348 | INFO | [generated in 0.00360s] ()
+2026-05-24 13:20:35,350 | INFO | SUCESSO | Listagem de proprietarios executada. Total encontrado: 1
+2026-05-24 13:20:35,351 | INFO | SUCESSO | Proprietario encontrado por ID: id=1, nome=Joao Proprietario
+2026-05-24 13:20:35,357 | INFO | UPDATE proprietarios SET nome=? WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:20:35,358 | INFO | [generated in 0.00118s] ('Joao Silva', 1)
+2026-05-24 13:20:35,365 | INFO | COMMIT
+2026-05-24 13:20:35,371 | INFO | BEGIN (implicit)
+2026-05-24 13:20:35,372 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:20:35,383 | INFO | [cached since 0.04375s ago] (1,)
+2026-05-24 13:20:35,384 | INFO | SUCESSO | Proprietario atualizado: id=1, nome=Joao Silva
+2026-05-24 13:20:35,389 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE ? = imoveis.id_proprietario
+2026-05-24 13:20:35,390 | INFO | [generated in 0.00131s] (1,)
+2026-05-24 13:20:35,395 | INFO | DELETE FROM proprietarios WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:20:35,397 | INFO | [generated in 0.00284s] (1,)
+2026-05-24 13:20:35,400 | INFO | COMMIT
+2026-05-24 13:20:35,404 | INFO | SUCESSO | Proprietario deletado com sucesso
+2026-05-24 13:20:35,405 | INFO | Teste de CRUD de proprietario finalizado
+2026-05-24 13:24:15,706 | INFO | Iniciando teste de CRUD de corretor
+2026-05-24 13:24:15,734 | INFO | BEGIN (implicit)
+2026-05-24 13:24:15,737 | INFO | INSERT INTO corretores (nome, creci) VALUES (?, ?)
+2026-05-24 13:24:15,738 | INFO | [generated in 0.00075s] ('Carlos Corretor', 'CRECI-12345')
+2026-05-24 13:24:15,742 | INFO | COMMIT
+2026-05-24 13:24:15,748 | INFO | BEGIN (implicit)
+2026-05-24 13:24:15,755 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:24:15,757 | INFO | [generated in 0.00130s] (1,)
+2026-05-24 13:24:15,759 | INFO | SUCESSO | Corretor criado: id=1, nome=Carlos Corretor, creci=CRECI-12345
+2026-05-24 13:24:15,760 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores
+2026-05-24 13:24:15,761 | INFO | [generated in 0.00090s] ()
+2026-05-24 13:24:15,763 | INFO | SUCESSO | Listagem de corretores executada. Total encontrado: 1
+2026-05-24 13:24:15,764 | INFO | SUCESSO | Corretor encontrado por ID: id=1, nome=Carlos Corretor
+2026-05-24 13:24:15,770 | INFO | UPDATE corretores SET nome=? WHERE corretores.id_corretor = ?
+2026-05-24 13:24:15,771 | INFO | [generated in 0.00084s] ('Carlos Silva', 1)
+2026-05-24 13:24:15,774 | INFO | COMMIT
+2026-05-24 13:24:15,780 | INFO | BEGIN (implicit)
+2026-05-24 13:24:15,782 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:24:15,783 | INFO | [cached since 0.02787s ago] (1,)
+2026-05-24 13:24:15,785 | INFO | SUCESSO | Corretor atualizado: id=1, nome=Carlos Silva, creci=CRECI-12345
+2026-05-24 13:24:15,793 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_corretor
+2026-05-24 13:24:15,795 | INFO | [generated in 0.00164s] (1,)
+2026-05-24 13:24:15,800 | INFO | DELETE FROM corretores WHERE corretores.id_corretor = ?
+2026-05-24 13:24:15,801 | INFO | [generated in 0.00070s] (1,)
+2026-05-24 13:24:15,804 | INFO | COMMIT
+2026-05-24 13:24:15,808 | INFO | SUCESSO | Corretor deletado com sucesso
+2026-05-24 13:24:15,809 | INFO | Teste de CRUD de corretor finalizado
+2026-05-24 13:27:28,937 | INFO | Iniciando teste de CRUD de imovel
+2026-05-24 13:27:28,965 | INFO | BEGIN (implicit)
+2026-05-24 13:27:28,969 | INFO | INSERT INTO proprietarios (nome, cpf) VALUES (?, ?)
+2026-05-24 13:27:28,970 | INFO | [generated in 0.00077s] ('Proprietario Teste Imovel', '99988877766')
+2026-05-24 13:27:28,974 | INFO | COMMIT
+2026-05-24 13:27:28,981 | INFO | BEGIN (implicit)
+2026-05-24 13:27:28,987 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:27:28,989 | INFO | [generated in 0.00146s] (1,)
+2026-05-24 13:27:28,991 | INFO | SUCESSO | Proprietario criado para teste: id=1, nome=Proprietario Teste Imovel
+2026-05-24 13:27:28,993 | INFO | INSERT INTO imoveis (endereco, tipo_imovel, valor_base, id_proprietario) VALUES (?, ?, ?, ?)
+2026-05-24 13:27:28,995 | INFO | [generated in 0.00215s] ('Rua das Flores, 100', 'Apartamento', 350000.0, 1)
+2026-05-24 13:27:29,032 | INFO | COMMIT
+2026-05-24 13:27:29,039 | INFO | BEGIN (implicit)
+2026-05-24 13:27:29,042 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:27:29,045 | INFO | [generated in 0.00309s] (1,)
+2026-05-24 13:27:29,048 | INFO | SUCESSO | Imovel criado: id=1, endereco=Rua das Flores, 100, tipo=Apartamento, valor_base=350000.0, id_proprietario=1
+2026-05-24 13:27:29,050 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis
+2026-05-24 13:27:29,052 | INFO | [generated in 0.00189s] ()
+2026-05-24 13:27:29,054 | INFO | SUCESSO | Listagem de imoveis executada. Total encontrado: 1
+2026-05-24 13:27:29,055 | INFO | SUCESSO | Imovel encontrado por ID: id=1, endereco=Rua das Flores, 100
+2026-05-24 13:27:29,059 | INFO | UPDATE imoveis SET endereco=?, valor_base=? WHERE imoveis.id_imovel = ?
+2026-05-24 13:27:29,060 | INFO | [generated in 0.00112s] ('Rua das Flores, 200', 375000.0, 1)
+2026-05-24 13:27:29,064 | INFO | COMMIT
+2026-05-24 13:27:29,071 | INFO | BEGIN (implicit)
+2026-05-24 13:27:29,072 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:27:29,073 | INFO | [cached since 0.03137s ago] (1,)
+2026-05-24 13:27:29,075 | INFO | SUCESSO | Imovel atualizado: id=1, endereco=Rua das Flores, 200, valor_base=375000.0
+2026-05-24 13:27:29,080 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_imovel
+2026-05-24 13:27:29,083 | INFO | [generated in 0.00246s] (1,)
+2026-05-24 13:27:29,087 | INFO | DELETE FROM imoveis WHERE imoveis.id_imovel = ?
+2026-05-24 13:27:29,088 | INFO | [generated in 0.00135s] (1,)
+2026-05-24 13:27:29,092 | INFO | COMMIT
+2026-05-24 13:27:29,131 | INFO | SUCESSO | Imovel deletado com sucesso
+2026-05-24 13:27:29,133 | INFO | BEGIN (implicit)
+2026-05-24 13:27:29,136 | INFO | SELECT proprietarios.id_proprietario AS proprietarios_id_proprietario, proprietarios.nome AS proprietarios_nome, proprietarios.cpf AS proprietarios_cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:27:29,137 | INFO | [generated in 0.00104s] (1,)
+2026-05-24 13:27:29,140 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE ? = imoveis.id_proprietario
+2026-05-24 13:27:29,142 | INFO | [generated in 0.00127s] (1,)
+2026-05-24 13:27:29,146 | INFO | DELETE FROM proprietarios WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:27:29,147 | INFO | [generated in 0.00077s] (1,)
+2026-05-24 13:27:29,151 | INFO | COMMIT
+2026-05-24 13:27:29,154 | INFO | SUCESSO | Proprietario usado no teste de imovel deletado com sucesso
+2026-05-24 13:27:29,155 | INFO | Teste de CRUD de imovel finalizado
+2026-05-24 13:31:04,633 | INFO | Iniciando teste de CRUD de contrato
+2026-05-24 13:31:04,660 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,663 | INFO | INSERT INTO clientes (nome, cpf, telefone) VALUES (?, ?, ?)
+2026-05-24 13:31:04,664 | INFO | [generated in 0.00077s] ('Cliente Teste Contrato', '22233344455', '11977777777')
+2026-05-24 13:31:04,669 | INFO | COMMIT
+2026-05-24 13:31:04,676 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,683 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:31:04,685 | INFO | [generated in 0.00211s] (1,)
+2026-05-24 13:31:04,687 | INFO | SUCESSO | Cliente criado para teste: id=1, nome=Cliente Teste Contrato
+2026-05-24 13:31:04,690 | INFO | INSERT INTO proprietarios (nome, cpf) VALUES (?, ?)
+2026-05-24 13:31:04,691 | INFO | [generated in 0.00082s] ('Proprietario Teste Contrato', '33344455566')
+2026-05-24 13:31:04,695 | INFO | COMMIT
+2026-05-24 13:31:04,701 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,704 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:31:04,710 | INFO | [generated in 0.00550s] (1,)
+2026-05-24 13:31:04,711 | INFO | SUCESSO | Proprietario criado para teste: id=1, nome=Proprietario Teste Contrato
+2026-05-24 13:31:04,713 | INFO | INSERT INTO imoveis (endereco, tipo_imovel, valor_base, id_proprietario) VALUES (?, ?, ?, ?)
+2026-05-24 13:31:04,714 | INFO | [generated in 0.00088s] ('Avenida Central, 500', 'Casa', 500000.0, 1)
+2026-05-24 13:31:04,721 | INFO | COMMIT
+2026-05-24 13:31:04,726 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,730 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:31:04,734 | INFO | [generated in 0.00379s] (1,)
+2026-05-24 13:31:04,735 | INFO | SUCESSO | Imovel criado para teste: id=1, endereco=Avenida Central, 500
+2026-05-24 13:31:04,737 | INFO | INSERT INTO corretores (nome, creci) VALUES (?, ?)
+2026-05-24 13:31:04,738 | INFO | [generated in 0.00074s] ('Corretor Teste Contrato', 'CRECI-99999')
+2026-05-24 13:31:04,741 | INFO | COMMIT
+2026-05-24 13:31:04,747 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,750 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:31:04,752 | INFO | [generated in 0.00162s] (1,)
+2026-05-24 13:31:04,753 | INFO | SUCESSO | Corretor criado para teste: id=1, nome=Corretor Teste Contrato
+2026-05-24 13:31:04,755 | INFO | SELECT clientes.id_cliente AS clientes_id_cliente, clientes.nome AS clientes_nome, clientes.cpf AS clientes_cpf, clientes.telefone AS clientes_telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:31:04,756 | INFO | [generated in 0.00101s] (1,)
+2026-05-24 13:31:04,761 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:31:04,762 | INFO | [generated in 0.00168s] (1,)
+2026-05-24 13:31:04,769 | INFO | INSERT INTO contratos (tipo_contrato, valor_transacao, data_assinatura, id_cliente, id_imovel, id_corretor) VALUES (?, ?, ?, ?, ?, ?)
+2026-05-24 13:31:04,770 | INFO | [generated in 0.00136s] ('venda', 485000.0, '2026-05-24', 1, 1, 1)
+2026-05-24 13:31:04,774 | INFO | COMMIT
+2026-05-24 13:31:04,779 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,784 | INFO | SELECT contratos.id_contrato, contratos.tipo_contrato, contratos.valor_transacao, contratos.data_assinatura, contratos.id_cliente, contratos.id_imovel, contratos.id_corretor 
+FROM contratos 
+WHERE contratos.id_contrato = ?
+2026-05-24 13:31:04,785 | INFO | [generated in 0.00110s] (1,)
+2026-05-24 13:31:04,787 | INFO | SUCESSO | Contrato criado: id=1, tipo=venda, valor=485000.0
+2026-05-24 13:31:04,789 | INFO | SELECT contratos.id_contrato, contratos.tipo_contrato, contratos.valor_transacao, contratos.data_assinatura, contratos.id_cliente, contratos.id_imovel, contratos.id_corretor 
+FROM contratos
+2026-05-24 13:31:04,791 | INFO | [generated in 0.00224s] ()
+2026-05-24 13:31:04,793 | INFO | SUCESSO | Listagem de contratos executada. Total encontrado: 1
+2026-05-24 13:31:04,794 | INFO | SUCESSO | Contrato encontrado por ID: id=1, tipo=venda
+2026-05-24 13:31:04,799 | INFO | UPDATE contratos SET valor_transacao=? WHERE contratos.id_contrato = ?
+2026-05-24 13:31:04,800 | INFO | [generated in 0.00119s] (490000.0, 1)
+2026-05-24 13:31:04,803 | INFO | COMMIT
+2026-05-24 13:31:04,808 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,810 | INFO | SELECT contratos.id_contrato, contratos.tipo_contrato, contratos.valor_transacao, contratos.data_assinatura, contratos.id_cliente, contratos.id_imovel, contratos.id_corretor 
+FROM contratos 
+WHERE contratos.id_contrato = ?
+2026-05-24 13:31:04,816 | INFO | [cached since 0.03248s ago] (1,)
+2026-05-24 13:31:04,818 | INFO | SUCESSO | Contrato atualizado: id=1, valor=490000.0
+2026-05-24 13:31:04,821 | INFO | DELETE FROM contratos WHERE contratos.id_contrato = ?
+2026-05-24 13:31:04,821 | INFO | [generated in 0.00068s] (1,)
+2026-05-24 13:31:04,825 | INFO | COMMIT
+2026-05-24 13:31:04,829 | INFO | SUCESSO | Contrato deletado com sucesso
+2026-05-24 13:31:04,830 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,831 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:31:04,834 | INFO | [cached since 0.07337s ago] (1,)
+2026-05-24 13:31:04,841 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_imovel
+2026-05-24 13:31:04,843 | INFO | [generated in 0.00199s] (1,)
+2026-05-24 13:31:04,846 | INFO | DELETE FROM imoveis WHERE imoveis.id_imovel = ?
+2026-05-24 13:31:04,847 | INFO | [generated in 0.00080s] (1,)
+2026-05-24 13:31:04,851 | INFO | COMMIT
+2026-05-24 13:31:04,856 | INFO | SUCESSO | Imovel usado no teste de contrato deletado com sucesso
+2026-05-24 13:31:04,857 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,860 | INFO | SELECT proprietarios.id_proprietario AS proprietarios_id_proprietario, proprietarios.nome AS proprietarios_nome, proprietarios.cpf AS proprietarios_cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:31:04,861 | INFO | [generated in 0.00161s] (1,)
+2026-05-24 13:31:04,868 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE ? = imoveis.id_proprietario
+2026-05-24 13:31:04,870 | INFO | [generated in 0.00149s] (1,)
+2026-05-24 13:31:04,872 | INFO | DELETE FROM proprietarios WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:31:04,873 | INFO | [generated in 0.00066s] (1,)
+2026-05-24 13:31:04,875 | INFO | COMMIT
+2026-05-24 13:31:04,880 | INFO | SUCESSO | Proprietario usado no teste de contrato deletado com sucesso
+2026-05-24 13:31:04,881 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,884 | INFO | SELECT clientes.id_cliente AS clientes_id_cliente, clientes.nome AS clientes_nome, clientes.cpf AS clientes_cpf, clientes.telefone AS clientes_telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:31:04,885 | INFO | [cached since 0.1302s ago] (1,)
+2026-05-24 13:31:04,889 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_cliente
+2026-05-24 13:31:04,891 | INFO | [generated in 0.00203s] (1,)
+2026-05-24 13:31:04,894 | INFO | DELETE FROM clientes WHERE clientes.id_cliente = ?
+2026-05-24 13:31:04,895 | INFO | [generated in 0.00081s] (1,)
+2026-05-24 13:31:04,899 | INFO | COMMIT
+2026-05-24 13:31:04,903 | INFO | SUCESSO | Cliente usado no teste de contrato deletado com sucesso
+2026-05-24 13:31:04,904 | INFO | BEGIN (implicit)
+2026-05-24 13:31:04,907 | INFO | SELECT corretores.id_corretor AS corretores_id_corretor, corretores.nome AS corretores_nome, corretores.creci AS corretores_creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:31:04,908 | INFO | [generated in 0.00121s] (1,)
+2026-05-24 13:31:04,912 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_corretor
+2026-05-24 13:31:04,915 | INFO | [generated in 0.00231s] (1,)
+2026-05-24 13:31:04,917 | INFO | DELETE FROM corretores WHERE corretores.id_corretor = ?
+2026-05-24 13:31:04,918 | INFO | [generated in 0.00071s] (1,)
+2026-05-24 13:31:04,921 | INFO | COMMIT
+2026-05-24 13:31:04,926 | INFO | SUCESSO | Corretor usado no teste de contrato deletado com sucesso
+2026-05-24 13:31:04,926 | INFO | Teste de CRUD de contrato finalizado
+2026-05-24 13:38:21,569 | INFO | Iniciando teste de CRUD de cliente
+2026-05-24 13:38:21,595 | INFO | BEGIN (implicit)
+2026-05-24 13:38:21,599 | INFO | INSERT INTO clientes (nome, cpf, telefone) VALUES (?, ?, ?)
+2026-05-24 13:38:21,599 | INFO | [generated in 0.00047s] ('Maria Silva', '1234578900', '119999999')
+2026-05-24 13:38:21,603 | INFO | COMMIT
+2026-05-24 13:38:21,608 | INFO | BEGIN (implicit)
+2026-05-24 13:38:21,616 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:38:21,616 | INFO | [generated in 0.00064s] (1,)
+2026-05-24 13:38:21,617 | INFO | SUCESSO | Cliente criado: id=1,nome=Maria Silva, cpf=1234578900, telefone=119999999
+2026-05-24 13:38:21,619 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes
+2026-05-24 13:38:21,619 | INFO | [generated in 0.00035s] ()
+2026-05-24 13:38:21,620 | INFO | SUCESSO | Listagem de clientes executada. Total encontrado: 1
+2026-05-24 13:38:21,620 | INFO | SUCESSO | Cliente encontrado por ID: id=1,nome=Maria Silva
+2026-05-24 13:38:21,623 | INFO | UPDATE clientes SET telefone=? WHERE clientes.id_cliente = ?
+2026-05-24 13:38:21,624 | INFO | [generated in 0.00039s] ('11888888888', 1)
+2026-05-24 13:38:21,626 | INFO | COMMIT
+2026-05-24 13:38:21,631 | INFO | BEGIN (implicit)
+2026-05-24 13:38:21,632 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:38:21,632 | INFO | [cached since 0.01653s ago] (1,)
+2026-05-24 13:38:21,633 | INFO | SUCESSO | Cliente Atualizado: id =1,telefone=11888888888
+2026-05-24 13:38:21,638 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_cliente
+2026-05-24 13:38:21,639 | INFO | [generated in 0.00083s] (1,)
+2026-05-24 13:38:21,643 | INFO | DELETE FROM clientes WHERE clientes.id_cliente = ?
+2026-05-24 13:38:21,643 | INFO | [generated in 0.00058s] (1,)
+2026-05-24 13:38:21,646 | INFO | COMMIT
+2026-05-24 13:38:21,650 | INFO | SUCESSO | Cliente deletado com sucesso
+2026-05-24 13:38:21,650 | INFO | Teste de CRUD de cliente finalizado
+2026-05-24 13:38:22,981 | INFO | Iniciando teste de CRUD de proprietario
+2026-05-24 13:38:23,010 | INFO | BEGIN (implicit)
+2026-05-24 13:38:23,013 | INFO | INSERT INTO proprietarios (nome, cpf) VALUES (?, ?)
+2026-05-24 13:38:23,013 | INFO | [generated in 0.00047s] ('Joao Proprietario', '11122233344')
+2026-05-24 13:38:23,017 | INFO | COMMIT
+2026-05-24 13:38:23,022 | INFO | BEGIN (implicit)
+2026-05-24 13:38:23,027 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:23,027 | INFO | [generated in 0.00056s] (1,)
+2026-05-24 13:38:23,028 | INFO | SUCESSO | Proprietario criado: id=1, nome=Joao Proprietario, cpf=11122233344
+2026-05-24 13:38:23,029 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios
+2026-05-24 13:38:23,030 | INFO | [generated in 0.00034s] ()
+2026-05-24 13:38:23,031 | INFO | SUCESSO | Listagem de proprietarios executada. Total encontrado: 1
+2026-05-24 13:38:23,031 | INFO | SUCESSO | Proprietario encontrado por ID: id=1, nome=Joao Proprietario
+2026-05-24 13:38:23,035 | INFO | UPDATE proprietarios SET nome=? WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:23,036 | INFO | [generated in 0.00046s] ('Joao Silva', 1)
+2026-05-24 13:38:23,038 | INFO | COMMIT
+2026-05-24 13:38:23,043 | INFO | BEGIN (implicit)
+2026-05-24 13:38:23,044 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:23,044 | INFO | [cached since 0.01734s ago] (1,)
+2026-05-24 13:38:23,045 | INFO | SUCESSO | Proprietario atualizado: id=1, nome=Joao Silva
+2026-05-24 13:38:23,049 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE ? = imoveis.id_proprietario
+2026-05-24 13:38:23,050 | INFO | [generated in 0.00044s] (1,)
+2026-05-24 13:38:23,052 | INFO | DELETE FROM proprietarios WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:23,052 | INFO | [generated in 0.00037s] (1,)
+2026-05-24 13:38:23,054 | INFO | COMMIT
+2026-05-24 13:38:23,059 | INFO | SUCESSO | Proprietario deletado com sucesso
+2026-05-24 13:38:23,059 | INFO | Teste de CRUD de proprietario finalizado
+2026-05-24 13:38:24,434 | INFO | Iniciando teste de CRUD de corretor
+2026-05-24 13:38:24,463 | INFO | BEGIN (implicit)
+2026-05-24 13:38:24,466 | INFO | INSERT INTO corretores (nome, creci) VALUES (?, ?)
+2026-05-24 13:38:24,466 | INFO | [generated in 0.00108s] ('Carlos Corretor', 'CRECI-12345')
+2026-05-24 13:38:24,470 | INFO | COMMIT
+2026-05-24 13:38:24,477 | INFO | BEGIN (implicit)
+2026-05-24 13:38:24,484 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:38:24,485 | INFO | [generated in 0.00072s] (1,)
+2026-05-24 13:38:24,486 | INFO | SUCESSO | Corretor criado: id=1, nome=Carlos Corretor, creci=CRECI-12345
+2026-05-24 13:38:24,487 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores
+2026-05-24 13:38:24,488 | INFO | [generated in 0.00035s] ()
+2026-05-24 13:38:24,489 | INFO | SUCESSO | Listagem de corretores executada. Total encontrado: 1
+2026-05-24 13:38:24,489 | INFO | SUCESSO | Corretor encontrado por ID: id=1, nome=Carlos Corretor
+2026-05-24 13:38:24,493 | INFO | UPDATE corretores SET nome=? WHERE corretores.id_corretor = ?
+2026-05-24 13:38:24,493 | INFO | [generated in 0.00043s] ('Carlos Silva', 1)
+2026-05-24 13:38:24,496 | INFO | COMMIT
+2026-05-24 13:38:24,501 | INFO | BEGIN (implicit)
+2026-05-24 13:38:24,503 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:38:24,503 | INFO | [cached since 0.0189s ago] (1,)
+2026-05-24 13:38:24,504 | INFO | SUCESSO | Corretor atualizado: id=1, nome=Carlos Silva, creci=CRECI-12345
+2026-05-24 13:38:24,509 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_corretor
+2026-05-24 13:38:24,509 | INFO | [generated in 0.00042s] (1,)
+2026-05-24 13:38:24,512 | INFO | DELETE FROM corretores WHERE corretores.id_corretor = ?
+2026-05-24 13:38:24,512 | INFO | [generated in 0.00042s] (1,)
+2026-05-24 13:38:24,515 | INFO | COMMIT
+2026-05-24 13:38:24,518 | INFO | SUCESSO | Corretor deletado com sucesso
+2026-05-24 13:38:24,519 | INFO | Teste de CRUD de corretor finalizado
+2026-05-24 13:38:25,861 | INFO | Iniciando teste de CRUD de imovel
+2026-05-24 13:38:25,888 | INFO | BEGIN (implicit)
+2026-05-24 13:38:25,891 | INFO | INSERT INTO proprietarios (nome, cpf) VALUES (?, ?)
+2026-05-24 13:38:25,892 | INFO | [generated in 0.00046s] ('Proprietario Teste Imovel', '99988877766')
+2026-05-24 13:38:25,895 | INFO | COMMIT
+2026-05-24 13:38:25,901 | INFO | BEGIN (implicit)
+2026-05-24 13:38:25,908 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:25,908 | INFO | [generated in 0.00058s] (1,)
+2026-05-24 13:38:25,910 | INFO | SUCESSO | Proprietario criado para teste: id=1, nome=Proprietario Teste Imovel
+2026-05-24 13:38:25,912 | INFO | INSERT INTO imoveis (endereco, tipo_imovel, valor_base, id_proprietario) VALUES (?, ?, ?, ?)
+2026-05-24 13:38:25,912 | INFO | [generated in 0.00042s] ('Rua das Flores, 100', 'Apartamento', 350000.0, 1)
+2026-05-24 13:38:25,915 | INFO | COMMIT
+2026-05-24 13:38:25,920 | INFO | BEGIN (implicit)
+2026-05-24 13:38:25,923 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:25,923 | INFO | [generated in 0.00047s] (1,)
+2026-05-24 13:38:25,924 | INFO | SUCESSO | Imovel criado: id=1, endereco=Rua das Flores, 100, tipo=Apartamento, valor_base=350000.0, id_proprietario=1
+2026-05-24 13:38:25,925 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis
+2026-05-24 13:38:25,925 | INFO | [generated in 0.00032s] ()
+2026-05-24 13:38:25,926 | INFO | SUCESSO | Listagem de imoveis executada. Total encontrado: 1
+2026-05-24 13:38:25,927 | INFO | SUCESSO | Imovel encontrado por ID: id=1, endereco=Rua das Flores, 100
+2026-05-24 13:38:25,930 | INFO | UPDATE imoveis SET endereco=?, valor_base=? WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:25,930 | INFO | [generated in 0.00036s] ('Rua das Flores, 200', 375000.0, 1)
+2026-05-24 13:38:25,932 | INFO | COMMIT
+2026-05-24 13:38:25,936 | INFO | BEGIN (implicit)
+2026-05-24 13:38:25,937 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:25,938 | INFO | [cached since 0.01483s ago] (1,)
+2026-05-24 13:38:25,938 | INFO | SUCESSO | Imovel atualizado: id=1, endereco=Rua das Flores, 200, valor_base=375000.0
+2026-05-24 13:38:25,943 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_imovel
+2026-05-24 13:38:25,943 | INFO | [generated in 0.00043s] (1,)
+2026-05-24 13:38:25,946 | INFO | DELETE FROM imoveis WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:25,946 | INFO | [generated in 0.00037s] (1,)
+2026-05-24 13:38:25,949 | INFO | COMMIT
+2026-05-24 13:38:25,955 | INFO | SUCESSO | Imovel deletado com sucesso
+2026-05-24 13:38:25,956 | INFO | BEGIN (implicit)
+2026-05-24 13:38:25,957 | INFO | SELECT proprietarios.id_proprietario AS proprietarios_id_proprietario, proprietarios.nome AS proprietarios_nome, proprietarios.cpf AS proprietarios_cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:25,958 | INFO | [generated in 0.00044s] (1,)
+2026-05-24 13:38:25,961 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE ? = imoveis.id_proprietario
+2026-05-24 13:38:25,961 | INFO | [generated in 0.00040s] (1,)
+2026-05-24 13:38:25,964 | INFO | DELETE FROM proprietarios WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:25,964 | INFO | [generated in 0.00037s] (1,)
+2026-05-24 13:38:25,966 | INFO | COMMIT
+2026-05-24 13:38:25,970 | INFO | SUCESSO | Proprietario usado no teste de imovel deletado com sucesso
+2026-05-24 13:38:25,970 | INFO | Teste de CRUD de imovel finalizado
+2026-05-24 13:38:27,494 | INFO | Iniciando teste de CRUD de contrato
+2026-05-24 13:38:27,521 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,524 | INFO | INSERT INTO clientes (nome, cpf, telefone) VALUES (?, ?, ?)
+2026-05-24 13:38:27,524 | INFO | [generated in 0.00047s] ('Cliente Teste Contrato', '22233344455', '11977777777')
+2026-05-24 13:38:27,528 | INFO | COMMIT
+2026-05-24 13:38:27,534 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,541 | INFO | SELECT clientes.id_cliente, clientes.nome, clientes.cpf, clientes.telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:38:27,541 | INFO | [generated in 0.00063s] (1,)
+2026-05-24 13:38:27,543 | INFO | SUCESSO | Cliente criado para teste: id=1, nome=Cliente Teste Contrato
+2026-05-24 13:38:27,544 | INFO | INSERT INTO proprietarios (nome, cpf) VALUES (?, ?)
+2026-05-24 13:38:27,545 | INFO | [generated in 0.00038s] ('Proprietario Teste Contrato', '33344455566')
+2026-05-24 13:38:27,547 | INFO | COMMIT
+2026-05-24 13:38:27,552 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,555 | INFO | SELECT proprietarios.id_proprietario, proprietarios.nome, proprietarios.cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:27,555 | INFO | [generated in 0.00053s] (1,)
+2026-05-24 13:38:27,557 | INFO | SUCESSO | Proprietario criado para teste: id=1, nome=Proprietario Teste Contrato
+2026-05-24 13:38:27,558 | INFO | INSERT INTO imoveis (endereco, tipo_imovel, valor_base, id_proprietario) VALUES (?, ?, ?, ?)
+2026-05-24 13:38:27,559 | INFO | [generated in 0.00040s] ('Avenida Central, 500', 'Casa', 500000.0, 1)
+2026-05-24 13:38:27,561 | INFO | COMMIT
+2026-05-24 13:38:27,566 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,568 | INFO | SELECT imoveis.id_imovel, imoveis.endereco, imoveis.tipo_imovel, imoveis.valor_base, imoveis.id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:27,569 | INFO | [generated in 0.00044s] (1,)
+2026-05-24 13:38:27,570 | INFO | SUCESSO | Imovel criado para teste: id=1, endereco=Avenida Central, 500
+2026-05-24 13:38:27,571 | INFO | INSERT INTO corretores (nome, creci) VALUES (?, ?)
+2026-05-24 13:38:27,572 | INFO | [generated in 0.00036s] ('Corretor Teste Contrato', 'CRECI-99999')
+2026-05-24 13:38:27,574 | INFO | COMMIT
+2026-05-24 13:38:27,579 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,582 | INFO | SELECT corretores.id_corretor, corretores.nome, corretores.creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:38:27,582 | INFO | [generated in 0.00057s] (1,)
+2026-05-24 13:38:27,583 | INFO | SUCESSO | Corretor criado para teste: id=1, nome=Corretor Teste Contrato
+2026-05-24 13:38:27,585 | INFO | SELECT clientes.id_cliente AS clientes_id_cliente, clientes.nome AS clientes_nome, clientes.cpf AS clientes_cpf, clientes.telefone AS clientes_telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:38:27,585 | INFO | [generated in 0.00043s] (1,)
+2026-05-24 13:38:27,587 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:27,587 | INFO | [generated in 0.00034s] (1,)
+2026-05-24 13:38:27,591 | INFO | INSERT INTO contratos (tipo_contrato, valor_transacao, data_assinatura, id_cliente, id_imovel, id_corretor) VALUES (?, ?, ?, ?, ?, ?)
+2026-05-24 13:38:27,591 | INFO | [generated in 0.00043s] ('venda', 485000.0, '2026-05-24', 1, 1, 1)
+2026-05-24 13:38:27,594 | INFO | COMMIT
+2026-05-24 13:38:27,599 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,601 | INFO | SELECT contratos.id_contrato, contratos.tipo_contrato, contratos.valor_transacao, contratos.data_assinatura, contratos.id_cliente, contratos.id_imovel, contratos.id_corretor 
+FROM contratos 
+WHERE contratos.id_contrato = ?
+2026-05-24 13:38:27,601 | INFO | [generated in 0.00045s] (1,)
+2026-05-24 13:38:27,602 | INFO | SUCESSO | Contrato criado: id=1, tipo=venda, valor=485000.0
+2026-05-24 13:38:27,604 | INFO | SELECT contratos.id_contrato, contratos.tipo_contrato, contratos.valor_transacao, contratos.data_assinatura, contratos.id_cliente, contratos.id_imovel, contratos.id_corretor 
+FROM contratos
+2026-05-24 13:38:27,604 | INFO | [generated in 0.00034s] ()
+2026-05-24 13:38:27,605 | INFO | SUCESSO | Listagem de contratos executada. Total encontrado: 1
+2026-05-24 13:38:27,605 | INFO | SUCESSO | Contrato encontrado por ID: id=1, tipo=venda
+2026-05-24 13:38:27,608 | INFO | UPDATE contratos SET valor_transacao=? WHERE contratos.id_contrato = ?
+2026-05-24 13:38:27,608 | INFO | [generated in 0.00038s] (490000.0, 1)
+2026-05-24 13:38:27,611 | INFO | COMMIT
+2026-05-24 13:38:27,615 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,616 | INFO | SELECT contratos.id_contrato, contratos.tipo_contrato, contratos.valor_transacao, contratos.data_assinatura, contratos.id_cliente, contratos.id_imovel, contratos.id_corretor 
+FROM contratos 
+WHERE contratos.id_contrato = ?
+2026-05-24 13:38:27,616 | INFO | [cached since 0.01563s ago] (1,)
+2026-05-24 13:38:27,617 | INFO | SUCESSO | Contrato atualizado: id=1, valor=490000.0
+2026-05-24 13:38:27,620 | INFO | DELETE FROM contratos WHERE contratos.id_contrato = ?
+2026-05-24 13:38:27,620 | INFO | [generated in 0.00038s] (1,)
+2026-05-24 13:38:27,622 | INFO | COMMIT
+2026-05-24 13:38:27,627 | INFO | SUCESSO | Contrato deletado com sucesso
+2026-05-24 13:38:27,627 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,628 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:27,628 | INFO | [cached since 0.04132s ago] (1,)
+2026-05-24 13:38:27,633 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_imovel
+2026-05-24 13:38:27,633 | INFO | [generated in 0.00044s] (1,)
+2026-05-24 13:38:27,635 | INFO | DELETE FROM imoveis WHERE imoveis.id_imovel = ?
+2026-05-24 13:38:27,635 | INFO | [generated in 0.00036s] (1,)
+2026-05-24 13:38:27,637 | INFO | COMMIT
+2026-05-24 13:38:27,642 | INFO | SUCESSO | Imovel usado no teste de contrato deletado com sucesso
+2026-05-24 13:38:27,643 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,644 | INFO | SELECT proprietarios.id_proprietario AS proprietarios_id_proprietario, proprietarios.nome AS proprietarios_nome, proprietarios.cpf AS proprietarios_cpf 
+FROM proprietarios 
+WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:27,645 | INFO | [generated in 0.00051s] (1,)
+2026-05-24 13:38:27,648 | INFO | SELECT imoveis.id_imovel AS imoveis_id_imovel, imoveis.endereco AS imoveis_endereco, imoveis.tipo_imovel AS imoveis_tipo_imovel, imoveis.valor_base AS imoveis_valor_base, imoveis.id_proprietario AS imoveis_id_proprietario 
+FROM imoveis 
+WHERE ? = imoveis.id_proprietario
+2026-05-24 13:38:27,648 | INFO | [generated in 0.00039s] (1,)
+2026-05-24 13:38:27,650 | INFO | DELETE FROM proprietarios WHERE proprietarios.id_proprietario = ?
+2026-05-24 13:38:27,650 | INFO | [generated in 0.00033s] (1,)
+2026-05-24 13:38:27,652 | INFO | COMMIT
+2026-05-24 13:38:27,656 | INFO | SUCESSO | Proprietario usado no teste de contrato deletado com sucesso
+2026-05-24 13:38:27,656 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,657 | INFO | SELECT clientes.id_cliente AS clientes_id_cliente, clientes.nome AS clientes_nome, clientes.cpf AS clientes_cpf, clientes.telefone AS clientes_telefone 
+FROM clientes 
+WHERE clientes.id_cliente = ?
+2026-05-24 13:38:27,657 | INFO | [cached since 0.07286s ago] (1,)
+2026-05-24 13:38:27,661 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_cliente
+2026-05-24 13:38:27,661 | INFO | [generated in 0.00042s] (1,)
+2026-05-24 13:38:27,663 | INFO | DELETE FROM clientes WHERE clientes.id_cliente = ?
+2026-05-24 13:38:27,663 | INFO | [generated in 0.00034s] (1,)
+2026-05-24 13:38:27,665 | INFO | COMMIT
+2026-05-24 13:38:27,669 | INFO | SUCESSO | Cliente usado no teste de contrato deletado com sucesso
+2026-05-24 13:38:27,670 | INFO | BEGIN (implicit)
+2026-05-24 13:38:27,672 | INFO | SELECT corretores.id_corretor AS corretores_id_corretor, corretores.nome AS corretores_nome, corretores.creci AS corretores_creci 
+FROM corretores 
+WHERE corretores.id_corretor = ?
+2026-05-24 13:38:27,672 | INFO | [generated in 0.00039s] (1,)
+2026-05-24 13:38:27,675 | INFO | SELECT contratos.id_contrato AS contratos_id_contrato, contratos.tipo_contrato AS contratos_tipo_contrato, contratos.valor_transacao AS contratos_valor_transacao, contratos.data_assinatura AS contratos_data_assinatura, contratos.id_cliente AS contratos_id_cliente, contratos.id_imovel AS contratos_id_imovel, contratos.id_corretor AS contratos_id_corretor 
+FROM contratos 
+WHERE ? = contratos.id_corretor
+2026-05-24 13:38:27,675 | INFO | [generated in 0.00039s] (1,)
+2026-05-24 13:38:27,677 | INFO | DELETE FROM corretores WHERE corretores.id_corretor = ?
+2026-05-24 13:38:27,678 | INFO | [generated in 0.00034s] (1,)
+2026-05-24 13:38:27,680 | INFO | COMMIT
+2026-05-24 13:38:27,683 | INFO | SUCESSO | Corretor usado no teste de contrato deletado com sucesso
+2026-05-24 13:38:27,684 | INFO | Teste de CRUD de contrato finalizado

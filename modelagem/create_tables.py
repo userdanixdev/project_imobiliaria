@@ -8,3 +8,5 @@ import models.corretor
 import models.contrato
 
 Base.metadata.create_all(bind=engine)
+
+print("Tabelas criadas com sucesso!")
