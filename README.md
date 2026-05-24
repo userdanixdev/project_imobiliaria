@@ -122,21 +122,21 @@ projeto-imobiliaria/
 |── requirements.txt
 
 ```
-## ⚙️ Ambiente Virtual
+## ⚙️ Ambiente Virtual:
 
 O projeto utiliza um ambiente virtual gerenciado pelo Conda.
 
-### Criação do ambiente
+### Criação do ambiente:
 ```bash
 conda create -n imobiliaria-env python=3.11
 ```
-## Evolução do Projeto
+## Evolução do Projeto:
 
 O projeto evoluiu da etapa inicial de modelagem de dados para a implementacao da primeira camada funcional de persistência.
 
 A versão atual contempla a criação da estrutura ORM com SQLAlchemy, a conexao com banco SQLite, a criação das tabelas, os CRUDs das entidades principais e testes manuais com registro em log.
 
-## Camada de Persistência
+## Camada de Persistência:
 
 Foram implementadas operações CRUD para as principais entidades do sistema imobiliario:
 
@@ -148,7 +148,7 @@ Foram implementadas operações CRUD para as principais entidades do sistema imo
 
 Cada entidade possui um arquivo especifico de CRUD dentro da pasta `modelagem`, permitindo criar, listar, buscar por ID, atualizar e deletar registros.
 
-## Testes
+## Testes:
 
 Foram criados testes manuais para validar os CRUDs implementados.
 
@@ -190,6 +190,10 @@ Registro de logs
 Execucao geral dos testes com run_tests.py
 README tecnico na pasta modelagem
 ```
+### Link da release:
+
+https://github.com/userdanixdev/project_imobiliaria/releases/tag/v0.1.0
+
 ### Estrutura do projeto atualizada:
 
 ```
@@ -241,7 +245,7 @@ project_imobiliaria/
         ├── imovel.py
         └── contrato.py
 ```
-        
+
 ### Proximos Passos:
 
 As próximas etapas previstas são:
