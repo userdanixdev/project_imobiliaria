@@ -173,7 +173,7 @@ run_tests.log
 
 Esses logs ajudam a acompanhar as validações realizadas durante o desenvolvimento.
 
-### Release v0.1.0
+### Release v0.1.0:
 A release v0.1.0 representa a primeira entrega técnica do projeto, contendo:
 
 ```
@@ -190,10 +190,61 @@ Registro de logs
 Execucao geral dos testes com run_tests.py
 README tecnico na pasta modelagem
 ```
+### Estrutura do projeto atualizada:
 
+```
+project_imobiliaria/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── docs/
+│   ├── intro.md
+│   ├── requisitos.md
+│   ├── justificativa_dbml.md
+│   └── model_logic.md
+│
+└── modelagem/
+    ├── README.md
+    ├── database.py
+    ├── create_tables.py
+    ├── modelo.dbml
+    ├── mer_james_martin.png
+    ├── mer_peter_chen.jpg
+    │
+    ├── crud_clientes.py
+    ├── crud_proprietario.py
+    ├── crud_corretor.py
+    ├── crud_imovel.py
+    ├── crud_contrato.py
+    │
+    ├── test_connection_db.py
+    ├── test_crud_cliente.py
+    ├── test_crud_proprietario.py
+    ├── test_crud_corretor.py
+    ├── test_crud_imovel.py
+    ├── test_crud_contrato.py
+    ├── test_logger.py
+    ├── run_tests.py
+    │
+    ├── logs/
+    │   ├── testes.log
+    │   └── run_tests.log
+    │
+    └── models/
+        ├── __init__.py
+        ├── base.py
+        ├── cliente.py
+        ├── proprietario.py
+        ├── corretor.py
+        ├── imovel.py
+        └── contrato.py
+```
+        
 ### Proximos Passos:
 
-As proximas etapas previstas são:
+As próximas etapas previstas são:
 
 - Criar uma API com Flask.
 - Conectar as rotas da API aos CRUDs existentes.
