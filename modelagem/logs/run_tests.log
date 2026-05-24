@@ -1,0 +1,26 @@
+================================================================================
+Inicio da execucao dos testes: 2026-05-24 13:35:41.352528
+================================================================================
+Executando test_crud_cliente.py...
+ERRO | Falha ao executar test_crud_cliente.py.
+STDERR:
+C:\Users\fdani\miniconda3\envs\imobiliaria-env\python.exe: can't open file 'C:\\Users\\fdani\\project_imobiliaria\\modelagem\\test_crud_cliente.py': [Errno 2] No such file or directory
+
+================================================================================
+Inicio da execucao dos testes: 2026-05-24 13:38:19.880945
+================================================================================
+Executando test_crud_client.py...
+SUCESSO | test_crud_client.py executado com sucesso.
+Executando test_crud_prop.py...
+SUCESSO | test_crud_prop.py executado com sucesso.
+Executando test_crud_corretor.py...
+SUCESSO | test_crud_corretor.py executado com sucesso.
+Executando test_crud_imovel.py...
+SUCESSO | test_crud_imovel.py executado com sucesso.
+Executando test_crud_contrato.py...
+SUCESSO | test_crud_contrato.py executado com sucesso.
+================================================================================
+Fim da execucao dos testes: 2026-05-24 13:38:27.823496
+Duracao total: 0:00:07.942551
+Todos os testes foram executados com sucesso.
+================================================================================
