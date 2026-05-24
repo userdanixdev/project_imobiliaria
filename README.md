@@ -130,6 +130,76 @@ O projeto utiliza um ambiente virtual gerenciado pelo Conda.
 ```bash
 conda create -n imobiliaria-env python=3.11
 ```
+## Evolução do Projeto
+
+O projeto evoluiu da etapa inicial de modelagem de dados para a implementacao da primeira camada funcional de persistência.
+
+A versão atual contempla a criação da estrutura ORM com SQLAlchemy, a conexao com banco SQLite, a criação das tabelas, os CRUDs das entidades principais e testes manuais com registro em log.
+
+## Camada de Persistência
+
+Foram implementadas operações CRUD para as principais entidades do sistema imobiliario:
+
+- Cliente
+- Proprietario
+- Corretor
+- Imovel
+- Contrato
+
+Cada entidade possui um arquivo especifico de CRUD dentro da pasta `modelagem`, permitindo criar, listar, buscar por ID, atualizar e deletar registros.
+
+## Testes
+
+Foram criados testes manuais para validar os CRUDs implementados.
+
+Os testes podem ser executados a partir da pasta `modelagem`:
+
+```bash
+python run_tests.py
+```
+
+### Logs:
+
+A execução dos testes gera arquivos de log na pasta:
+
+```modelagem/logs/```
+
+Logs principais:
+
+```
+testes.log
+run_tests.log
+```
+
+Esses logs ajudam a acompanhar as validações realizadas durante o desenvolvimento.
+
+### Release v0.1.0
+A release v0.1.0 representa a primeira entrega técnica do projeto, contendo:
+
+```
+Conexao com banco SQLite
+Modelos ORM com SQLAlchemy
+Criacao das tabelas
+CRUD de Cliente
+CRUD de Proprietario
+CRUD de Corretor
+CRUD de Imovel
+CRUD de Contrato
+Testes manuais dos CRUDs
+Registro de logs
+Execucao geral dos testes com run_tests.py
+README tecnico na pasta modelagem
+```
+
+### Proximos Passos:
+
+As proximas etapas previstas são:
+
+- Criar uma API com Flask.
+- Conectar as rotas da API aos CRUDs existentes.
+- Testar os endpoints da API.
+- Criar uma interface web para o sistema imobiliario.
+- Evoluir os testes para uma estrutura mais automatizada.
 
 ## 📌 Autor
 Daniel Martins França
