@@ -148,7 +148,7 @@ Foram implementadas operações CRUD para as principais entidades do sistema imo
 
 Cada entidade possui um arquivo especifico de CRUD dentro da pasta `modelagem`, permitindo criar, listar, buscar por ID, atualizar e deletar registros.
 
-## Testes:
+## Testes de integração:
 
 Foram criados testes manuais para validar os CRUDs implementados.
 
@@ -157,6 +157,7 @@ Os testes podem ser executados a partir da pasta `modelagem`:
 ```bash
 python run_tests.py
 ```
+*Obs: Também por entidades*
 
 ### Logs:
 
@@ -164,31 +165,31 @@ A execução dos testes gera arquivos de log na pasta:
 
 ```modelagem/logs/```
 
-Logs principais:
+### Logs principais:
 
 ```
 testes.log
 run_tests.log
 ```
 
-Esses logs ajudam a acompanhar as validações realizadas durante o desenvolvimento.
+> Esses logs ajudam a acompanhar as validações realizadas durante o desenvolvimento.
 
 ### Release v0.1.0:
 A release v0.1.0 representa a primeira entrega técnica do projeto, contendo:
 
 ```
-Conexao com banco SQLite
+Conexão com banco SQLite
 Modelos ORM com SQLAlchemy
-Criacao das tabelas
+Criação das tabelas
 CRUD de Cliente
-CRUD de Proprietario
+CRUD de Proprietário
 CRUD de Corretor
-CRUD de Imovel
+CRUD de Imóvel
 CRUD de Contrato
-Testes manuais dos CRUDs
+Testes manuais de integração dos CRUDs
 Registro de logs
-Execucao geral dos testes com run_tests.py
-README tecnico na pasta modelagem
+Execução geral dos testes com 'run_tests.py'
+README técnico na pasta modelagem
 ```
 ### Link da release:
 
