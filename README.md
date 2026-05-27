@@ -150,14 +150,17 @@ Cada entidade possui um arquivo especifico de CRUD dentro da pasta `modelagem`, 
 
 ## Testes de integração:
 
-Foram criados testes manuais para validar os CRUDs implementados.
+```
+Foram criados testes de integridade manuais para validar CRUD, banco SQLite, SQLAlchemy, sessão,
+relacionamento entre entidades e criação e exclusão real de registros.
+```
 
 Os testes podem ser executados a partir da pasta `modelagem`:
 
 ```bash
 python run_tests.py
 ```
-*Obs: Também por entidades*
+*Obs: Também por models*
 
 ### Logs:
 

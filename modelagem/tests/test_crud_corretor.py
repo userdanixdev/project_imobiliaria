@@ -1,12 +1,12 @@
-from database import SessionLocal
-from crud_corretor import (
+from modelagem.tests.database import SessionLocal
+from modelagem.tests.crud_corretor import (
     criar_corretor,
     listar_corretores,
     buscar_corretor_por_id,
     atualizar_corretor,
     deletar_corretor,
 )
-from test_logger import log_info, log_sucess, log_error
+from modelagem.tests.test_logger import log_info, log_sucess, log_error
 
 
 try:

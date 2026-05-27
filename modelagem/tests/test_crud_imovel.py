@@ -1,16 +1,16 @@
-from database import SessionLocal
-from crud_imovel import (
+from modelagem.tests.database import SessionLocal
+from modelagem.tests.crud_imovel import (
     criar_imovel,
     listar_imoveis,
     buscar_imovel_por_id,
     atualizar_imovel,
     deletar_imovel,
 )
-from crud_prop import (
+from modelagem.tests.crud_prop import (
     criar_proprietario,
     deletar_proprietario,
 )
-from test_logger import log_info, log_sucess, log_error
+from modelagem.tests.test_logger import log_info, log_sucess, log_error
 
 
 try:

@@ -1,18 +1,18 @@
-from crud_clientes import (
+from modelagem.tests.crud_clientes import (
     criar_cliente,
     listar_clientes,
     buscar_cliente,
     atualizar_cliente,
     deletar_cliente,
 )
-from database import SessionLocal
+from modelagem.tests.database import SessionLocal
 from models.cliente import Cliente
 from models.contrato import Contrato
 from models.imovel import Imovel
 from models.corretor import Corretor
 from models.proprietario import Proprietario
 
-from test_logger import log_info, log_sucess, log_error
+from modelagem.tests.test_logger import log_info, log_sucess, log_error
 
 try:
     with SessionLocal() as session:

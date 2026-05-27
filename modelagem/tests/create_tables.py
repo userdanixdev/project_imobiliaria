@@ -1,4 +1,4 @@
-from database import engine
+from modelagem.tests.database import engine
 from models.base import Base
 
 import models.cliente

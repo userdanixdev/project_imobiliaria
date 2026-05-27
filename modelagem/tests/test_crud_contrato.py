@@ -1,18 +1,18 @@
 from datetime import date
 
-from database import SessionLocal
-from crud_clientes import criar_cliente, deletar_cliente
-from crud_prop import criar_proprietario, deletar_proprietario
-from crud_imovel import criar_imovel, deletar_imovel
-from crud_corretor import criar_corretor, deletar_corretor
-from crud_contrato import (
+from modelagem.tests.database import SessionLocal
+from modelagem.tests.crud_clientes import criar_cliente, deletar_cliente
+from modelagem.tests.crud_prop import criar_proprietario, deletar_proprietario
+from modelagem.tests.crud_imovel import criar_imovel, deletar_imovel
+from modelagem.tests.crud_corretor import criar_corretor, deletar_corretor
+from modelagem.tests.crud_contrato import (
     criar_contrato,
     listar_contratos,
     buscar_contrato_por_id,
     atualizar_contrato,
     deletar_contrato,
 )
-from test_logger import log_info, log_sucess, log_error
+from modelagem.tests.test_logger import log_info, log_sucess, log_error
 
 
 try:

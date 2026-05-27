@@ -1,4 +1,4 @@
-from database import engine
+from modelagem.tests.database import engine
 from sqlalchemy import text
 
 
