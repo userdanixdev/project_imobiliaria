@@ -214,40 +214,41 @@ project_imobiliaria/
 │   └── model_logic.md
 │
 └── modelagem/
-    ├── README.md
-    ├── database.py
-    ├── create_tables.py
-    ├── modelo.dbml
-    ├── mer_james_martin.png
-    ├── mer_peter_chen.jpg
-    │
-    ├── crud_clientes.py
-    ├── crud_proprietario.py
-    ├── crud_corretor.py
-    ├── crud_imovel.py
-    ├── crud_contrato.py
-    │
-    ├── test_connection_db.py
-    ├── test_crud_cliente.py
-    ├── test_crud_proprietario.py
-    ├── test_crud_corretor.py
-    ├── test_crud_imovel.py
-    ├── test_crud_contrato.py
-    ├── test_logger.py
-    ├── run_tests.py
-    │
-    ├── logs/
-    │   ├── testes.log
-    │   └── run_tests.log
-    │
-    └── models/
-        ├── __init__.py
-        ├── base.py
-        ├── cliente.py
-        ├── proprietario.py
-        ├── corretor.py
-        ├── imovel.py
-        └── contrato.py
+|      └──docs/
+|            ├── README.md
+|            ├── database.py
+|            ├── create_tables.py
+|            ├── modelo.dbml
+|            ├── mer_james_martin.png
+|            └── mer_peter_chen.jpg
+|        └── logs/    
+|              └── run_tests.log
+|              └── testes.log
+|        └──tests/    
+|            ├── crud_clientes.py
+|            ├── crud_proprietario.py
+|            ├── crud_corretor.py
+|            ├── crud_imovel.py
+|            ├── crud_contrato.py
+|            │
+|            ├── test_connection_db.py
+|            ├── test_crud_cliente.py
+|            ├── test_crud_proprietario.py
+|            ├── test_crud_corretor.py
+|            ├── test_crud_imovel.py
+|            ├── test_crud_contrato.py
+|            ├── test_logger.py
+|            ├── run_tests.py|
+|
+|    
+|    └── models/
+|        ├── __init__.py
+|        ├── base.py
+|        ├── cliente.py
+|        ├── proprietario.py
+|        ├── corretor.py
+|        ├── imovel.py
+|        └── contrato.py
 ```
 
 ### Proximos Passos:
