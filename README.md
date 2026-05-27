@@ -135,7 +135,7 @@ A modelagem do sistema imobiliário foi representada por meio de diagramas conce
 - Base escalável para evolução futura do sistema
 
 
-## 🏗️ Estrutura do Projeto
+## 🏗️ Estrutura do Projeto Inicial:
 ```
 projeto-imobiliaria/
 │
@@ -159,7 +159,7 @@ projeto-imobiliaria/
 |   ├── data.base.py
 |   ├── modelo.dbml
 |   ├── mer_james_martin.png
-|   ├── mer_peter_chen.jpg
+|   ├── peter_chen.png
 |── .gitignore
 |── requirements.txt
 
