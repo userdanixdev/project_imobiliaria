@@ -120,7 +120,7 @@ A modelagem do sistema imobiliário foi representada por meio de diagramas conce
 
 ### Modelo Entidade-Relacionamento - Peter Chen
 
-<img src="modelagem/docs/mer_peter_chen.jpg" alt="MER Peter Chen" width="700">
+<img src="modelagem/docs/peter_chen.png" alt="MER Peter Chen" width="700">
 
 ### Modelo Entidade-Relacionamento - James Martin
 
