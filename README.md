@@ -114,6 +114,18 @@ estrutura do banco de dados.
 
 ---
 
+## Diagramas da Modelagem
+
+A modelagem do sistema imobiliário foi representada por meio de diagramas conceituais e relacionais, auxiliando na visualização das entidades, atributos e relacionamentos do domínio.
+
+### Modelo Entidade-Relacionamento - Peter Chen
+
+<img src="modelagem/docs/mer_peter_chen.jpg" alt="MER Peter Chen" width="700">
+
+### Modelo Entidade-Relacionamento - James Martin
+
+![MER James Martin](modelagem/docs/mer_james_martin.png)
+
 ## 📈 Benefícios Esperados
 
 - Dados organizados e padronizados
