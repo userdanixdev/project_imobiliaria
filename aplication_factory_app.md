@@ -249,6 +249,25 @@ Em resumo:
 
 > Assim o comando não apenas cria migrations; ele também ajuda a validar se os relacionamentos entre os models estão coerentes.
 
+## Aplicação da Migration com `db upgrade`
+
+Após gerar uma migration com o comando `db migrate`, é necessário aplicar essa migration no banco de dados. Para isso, utiliza-se o comando:
+
+```bash
+flask --app app:create_app db upgrade
+```
+
+Esse comando faz parte do Flask-Migrate e utiliza o Alembic para executar, no banco de dados, as alterações descritas nos arquivos de migration.
+
+Enquanto o comando db migrate gera o arquivo de migration com base nas diferenças entre os models e o banco, o comando db upgrade aplica essas alterações de fato.
+
+Observação Importante
+O comando db upgrade deve ser executado somente depois que uma migration for gerada com sucesso.
+
+Se o comando db migrate apresentar erros, como inconsistências em ForeignKey ou models não importados corretamente, esses problemas devem ser corrigidos antes da aplicação da migration no banco.
+
+Caso contrário, o banco pode não ser atualizado ou a migration pode nem chegar a ser criada.
+
 # Etapa 4 - Criação das Rotas da API Flask
 
 Após a criação e validação dos models com Flask-SQLAlchemy e Flask-Migrate, a próxima etapa será a criação das rotas da API.
