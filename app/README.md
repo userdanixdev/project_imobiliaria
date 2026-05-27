@@ -58,7 +58,7 @@ Este arquivo centraliza as extensões utilizadas pela aplicação.
 
 > O banco configurado fica na raiz do projeto: ```imobiliaria.db```
 
-### Arquivo app/__init__.py:
+### Arquivo app/```__init__.py:```
 
 > Este arquivo inicializa a aplicação Flask usando o padrão Application Factory.
 
@@ -72,7 +72,7 @@ Este arquivo centraliza as extensões utilizadas pela aplicação.
 
 > Esse padrão facilita testes, organização e crescimento da aplicação.
 
-> A estrutura com app/, extensions.py, config.py e create_app() prepara o projeto para:
+### A estrutura com app/, extensions.py, config.py e create_app() prepara o projeto para:
 
 - criar uma API Flask organizada;
 - integrar SQLAlchemy com Flask;
@@ -83,7 +83,7 @@ Este arquivo centraliza as extensões utilizadas pela aplicação.
 
 ### Referências Oficiais:
 
-> Documentações utilizadas como base:
+Documentações utilizadas como base:
 
 - Flask - Application Factory
 https://flask.palletsprojects.com/en/stable/patterns/appfactories/
@@ -101,8 +101,8 @@ https://alembic.sqlalchemy.org/en/latest/tutorial.html
 
 ### Por que não usar diretamente os modelos antigos?
 
-Os modelos atuais do projeto foram criados com **SQLAlchemy puro**, usando uma classe `Base` própria.
-Com isso, as tabelas ficam registradas no metadata de uma base nova.
+Os modelos atuais do projeto foram criados com **SQLAlchemy puro**, usando uma classe `Base` própria. Com isso, as tabelas ficam registradas no metadata de uma base nova.
+
 Na nova etapa do projeto, usando Flask-SQLAlchemy e Flask-Migrate, a aplicação passa a trabalhar com uma instância central do banco. Isso significa que o Alembic/Flask-Migrate usa o metadata associado ao db para detectar os modelos e gerar as migrations.
 Os modelos antigos foram registrados em outro metadata. Na prática, isso pode fazer com que o Flask-Migrate não detecte corretamente as tabelas, alterações de colunas, relacionamentos e demais mudanças do schema. Dessa forma adaptar os modelos para usarem o 'db' da aplicação Flask deixa tudo centralizado.
 
@@ -115,27 +115,27 @@ Os modelos antigos foram registrados em outro metadata. Na prática, isso pode f
 - A fase antiga de modelagem fica separada da nova fase de aplicação Flask.
 - Reduz o risco de inconsistências entre modelos, banco e migrations.
 
-Para este projeto, o caminho mais simples, organizado e aderente à documentação oficial é criar/adaptar os modelos da pasta app.
+*Para este projeto, o caminho mais simples, organizado e aderente à documentação oficial é criar/adaptar os modelos da pasta app.*
 
-Dessa forma, Flask, Flask-SQLAlchemy, Flask-Migrate e Alembic passam a trabalhar sobre o mesmo metadata.
+> Dessa forma, Flask, Flask-SQLAlchemy, Flask-Migrate e Alembic passam a trabalhar sobre o mesmo metadata.
 
 ## Justificativas da mudança:
 
-1. Mistura de responsabilidades
+### 1. Mistura de responsabilidades
 
 - A pasta modelagem/ nasceu como camada de estudo/modelagem, CRUD e testes manuais.
 - A pasta app/ seria a aplicação Flask/API.
 
-> Isso pode deixar o projeto mais difícil de evoluir
+*Isso pode deixar o projeto mais difícil de evoluir...*
 
-2. Imports obrigatórios para migrations
+### 2. Imports obrigatórios para migrations
 
 O Flask-Migrate só detecta modelos que foram importados. Se você esquecer de importar algum model antes de rodar o Alembic pode gerar uma migration incompleta. 
 Exemplo: se Contrato não foi importado, ele pode não aparecer na migration.
 
-3. Dois estilos no mesmo projeto:
+### 3. Dois estilos no mesmo projeto:
 
-Os modelos antigos usam SQLAlchemy puro.
+Os modelos antigos usam SQLAlchemy puro:
 
 ```python
 Column(Integer, primary_key=True)
@@ -148,14 +148,14 @@ Mapped
 mapped_column
 ```
 
-> Misturar estilos pode funcionar, mas prejudica padronização e aprendizado.
+*Misturar estilos pode funcionar, mas prejudica padronização e aprendizado.*
 
-4. Dependência da app em uma pasta antiga:
+### 4. Dependência da app em uma pasta antiga:
 
-> Se no futuro você quiser reorganizar ou remover a pasta modelagem/, a aplicação Flask quebra.
+Se no futuro você quiser reorganizar ou remover a pasta modelagem/, a aplicação Flask quebra.
 > A app fica acoplada à estrutura antiga.
 
-5. Risco de migrations estranhas:
+### 5. Risco de migrations estranhas:
 
 Se o metadata não for exatamente o mesmo, ou se parte dos modelos for registrada em outro lugar, o Alembic pode:
 
@@ -165,14 +165,15 @@ Se o metadata não for exatamente o mesmo, ou se parte dos modelos for registrad
 - não perceber mudanças em colunas;
 - gerar migrations incompletas.
 
-6. Menos alinhado com documentação Flask:
+### 6. Menos alinhado com documentação Flask:
 
 A documentação de Flask, Flask-SQLAlchemy e Flask-Migrate favorece uma estrutura onde a aplicação fica centralizada.
 
 ### Resumo:
 
-Reaproveitar o metadata antigo é possível, mas exige cuidado com imports, organização e consistência.
-Para aprendizado, manutenção e evolução para API, o melhor padrão é com modelos ligados diretamente ao db da aplicação Flask. Assim o Flask-Migrate trabalha com o metadata correto, e o projeto fica mais claro.
+```
+Reaproveitar o metadata antigo é possível, mas exige cuidado com imports, organização e consistência. Para aprendizado, manutenção e evolução para API, o melhor padrão é com modelos ligados diretamente ao db da aplicação Flask. Assim o Flask-Migrate trabalha com o metadata correto, e o projeto fica mais claro.
+```
 
 Dessa forma temos então esse fluxo lógico:
 
@@ -197,18 +198,20 @@ Esse padrão é conhecido como ```Application Factory```, no qual a instância d
 
 ### A saída obtida foi:
 
-Endpoint  Methods  Rule
---------  -------  -----------------------
-index     GET      /
-static    GET      /static/<path:filename>
+
+Endpoint |  Methods | Rule
+-------- | ------- | -----------------------
+index  |   GET |     /
+static |   GET |     /static/<path:filename>
 
 > Essa saída indica que o Flask conseguiu carregar a aplicação sem erro e identificou duas rotas:
 
-Endpoint	Método	Rota	Descrição
-index	GET	/	Rota principal da aplicação, geralmente responsável por exibir a página inicial.
-static	GET	/static/<path:filename>	Rota automática criada pelo Flask para servir arquivos estáticos, como CSS, JavaScript e imagens.
+Endpoint |	Método |	Rota |	Descrição
+--- | --- | --- | ---
+index |	GET	| /	| Rota principal da aplicação, geralmente responsável por exibir a página inicial.
+static |	GET	|/ |static/<path:filename>	Rota automática criada pelo Flask para servir arquivos estáticos, como CSS, JavaScript e imagens.
 
-Portanto, a validação confirma que:
+### Portanto, a validação confirma que:
 
 - A aplicação Flask foi carregada corretamente pela função create_app.
 - A rota principal / está registrada.
@@ -219,9 +222,11 @@ Portanto, a validação confirma que:
 
 *É importante destacar que esse comando não testa o funcionamento interno da página, banco de dados, formulários ou regras de negócio. Ele apenas valida o registro das rotas dentro da aplicação Flask. Para uma validação mais completa, também podem ser feitos testes acessando a aplicação no navegador ou utilizando testes automatizados com pytest e o test_client do Flask.*
 
-A documentação da CLI do Flask explica que --app define como o Flask deve localizar e carregar a aplicação, podendo apontar para uma instância ou para uma factory como create_app. Referência: Flask Command Line Interface.
+A documentação da CLI do Flask explica que --app define como o Flask deve localizar e carregar a aplicação, podendo apontar para uma instância ou para uma factory como create_app. 
 
-# Etapa 2 - Criação dos Models com Flask-SQLAlchemy
+*Referência: Flask Command Line Interface.*
+
+## Etapa 2 - Criação dos Models com Flask-SQLAlchemy
 
 Nesta etapa, os modelos da aplicação foram criados dentro da pasta `app/models/`, utilizando o `db` central definido em `app/extensions.py`.
 
@@ -237,7 +242,7 @@ A opção ```--app app:create_app```informa ao Flask que a aplicação deve ser 
 
 O trecho ```db migrate``` vem do Flask-Migrate e executa o processo de autogeração de migration usando o Alembic. A opção -m ```"create initial tables"``` adiciona uma mensagem descritiva à migration. Nesse caso, a mensagem indica que a migration tem como objetivo criar as tabelas iniciais do projeto.
 
-Em resumo:
+### Em resumo:
 
 - carrega a aplicação Flask;
 - acessa a configuração do banco;
@@ -261,14 +266,15 @@ Esse comando faz parte do Flask-Migrate e utiliza o Alembic para executar, no ba
 
 Enquanto o comando db migrate gera o arquivo de migration com base nas diferenças entre os models e o banco, o comando db upgrade aplica essas alterações de fato.
 
-Observação Importante
-O comando db upgrade deve ser executado somente depois que uma migration for gerada com sucesso.
+### Observação Importante:
 
-Se o comando db migrate apresentar erros, como inconsistências em ForeignKey ou models não importados corretamente, esses problemas devem ser corrigidos antes da aplicação da migration no banco.
+O comando ```**db upgrade**``` deve ser executado somente depois que uma migration for gerada com sucesso.
 
-Caso contrário, o banco pode não ser atualizado ou a migration pode nem chegar a ser criada.
+Se o comando ```db migrate``` apresentar erros, como inconsistências em **ForeignKey** ou models não importados corretamente, esses problemas devem ser corrigidos antes da aplicação da migration no banco.
 
-# Etapa 4 - Criação das Rotas da API Flask
+> Caso contrário, o banco pode não ser atualizado ou a migration pode nem chegar a ser criada.
+
+## Etapa 4 - Criação das Rotas da API Flask
 
 Após a criação e validação dos models com Flask-SQLAlchemy e Flask-Migrate, a próxima etapa será a criação das rotas da API.
 
