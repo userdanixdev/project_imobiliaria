@@ -1,3 +1,10 @@
+![Flask](https://img.shields.io/badge/Flask-Application%20Factory-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Flask SQLAlchemy](https://img.shields.io/badge/Flask--SQLAlchemy-3.x-D71F00?style=for-the-badge)
+![Flask Migrate](https://img.shields.io/badge/Flask--Migrate-4.x-blue?style=for-the-badge)
+![Alembic](https://img.shields.io/badge/Alembic-Migrations-6BA539?style=for-the-badge)
+![SQLite](https://img.shields.io/badge/SQLite-Development-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![API](https://img.shields.io/badge/API-em%20construção-orange?style=for-the-badge)
+
 # Etapa 1 - Estrutura Inicial Flask, Flask-SQLAlchemy e Flask-Migrate
 
 Nesta etapa foi iniciada a evolução do projeto para uma API com Flask, seguindo a documentação oficial do Flask, Flask-SQLAlchemy, Flask-Migrate e Alembic.

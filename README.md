@@ -1,11 +1,34 @@
-# 📊 Sistema Imobiliário – Modelagem de Dados (MER + DBML)
+# 📊 Sistema Imobiliário – Modelagem de Dados e API Flask
 
-Este projeto apresenta a modelagem de dados de um sistema imobiliário,
-desenvolvida a partir de regras de negócio reais, utilizando:
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.x-000000?style=for-the-badge&logo=flask&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Alembic](https://img.shields.io/badge/Alembic-Migrations-6BA539?style=for-the-badge)
+![Flask--Migrate](https://img.shields.io/badge/Flask--Migrate-4.x-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
+![Release](https://img.shields.io/badge/release-v0.2.0-purple?style=for-the-badge)
+![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+
+Este projeto apresenta a evolução de um sistema imobiliário, iniciado pela modelagem de dados e avançando para uma aplicação backend com Flask.
+
+A primeira fase foi desenvolvida a partir de regras de negócio reais, contemplando:
 
 - Modelo Entidade-Relacionamento (MER)
 - Database Markup Language (DBML)
 - Modelo lógico relacional (SQL)
+- Implementação ORM com SQLAlchemy
+- Operações CRUD para as entidades principais
+- Testes manuais de integração com registros em log
+
+A fase atual do projeto inicia a estruturação de uma API Flask, utilizando:
+
+- Flask
+- Flask-SQLAlchemy
+- Flask-Migrate
+- Alembic
+- SQLite
 
 ## 🧩 Problema:
 
