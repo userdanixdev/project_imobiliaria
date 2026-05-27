@@ -50,11 +50,14 @@ O projeto contempla:
 - Implementação do modelo lógico utilizando **SQLAlchemy**
 - Preparação da base para consultas e relatórios futuros
 
-O projeto **não contempla**, neste momento:
+O projeto ainda não contempla, neste momento:
 
 - Interface gráfica
 - Integração com sistemas externos
-- Camada de aplicação web ou mobile
+- Autenticação de usuários
+- Deploy em produção
+
+A camada de aplicação WEB/API começou a ser estruturada com Flask e será evoluída nas próximas etapas.
 
 ---
 
@@ -68,6 +71,10 @@ O projeto **não contempla**, neste momento:
 - **Git e GitHub** – versionamento e controle do código-fonte
 - **DB Designer Web** - modelagem de dados
 - **BR Modelo Web** - modelagem de dados
+- **Flask** – framework web para construção da API
+- **Flask-SQLAlchemy** – integração do SQLAlchemy com a aplicação Flask
+- **Flask-Migrate** – gerenciamento de migrations
+- **Alembic** – controle de versão da estrutura do banco de dados
 
 ---
 
@@ -251,15 +258,63 @@ project_imobiliaria/
 |        └── contrato.py
 ```
 
-### Proximos Passos:
+## Evolução para API Flask
+
+Após a primeira etapa de modelagem de dados e implementação dos CRUDs com SQLAlchemy puro, o projeto iniciou uma nova fase de evolução para uma API utilizando Flask.
+
+Essa nova etapa tem como objetivo organizar a aplicação em uma estrutura mais próxima de um projeto web real, preparando o sistema para expor suas funcionalidades por meio de rotas HTTP.
+
+Nesta fase, foram adicionadas as seguintes tecnologias:
+
+- **Flask** – framework web utilizado para criação da aplicação e futuras rotas da API.
+- **Flask-SQLAlchemy** – integração entre Flask e SQLAlchemy.
+- **Flask-Migrate** – controle de migrations do banco de dados com Alembic.
+- **Alembic** – ferramenta utilizada para versionamento da estrutura do banco.
+
+### Application Factory
+
+A aplicação passou a utilizar o padrão Application Factory, por meio da função:
+
+- create_app()
+
+*Esse padrão permite criar a aplicação Flask de forma mais organizada, facilitando testes, configurações por ambiente e crescimento do projeto.*
+
+### Nova Estrutura Flask
+
+Foi criada a pasta `app/`, responsável por concentrar a aplicação Flask:
+
+```text
+project_imobiliaria/
+│
+├── app/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── extensions.py
+│   └── models/
+│       └── __init__.py
+│
+├── migrations/
+│   └── ...
+│
+├── modelagem/
+│   └── ...
+│
+├── requirements.txt
+└── README.md
+```
+
+### Próximos Passos:
 
 As próximas etapas previstas são:
 
-- Criar uma API com Flask.
-- Conectar as rotas da API aos CRUDs existentes.
+- Finalizar a criação dos models em `app/models/` com Flask-SQLAlchemy.
+- Corrigir e padronizar chaves primárias e estrangeiras para uso com Flask-Migrate.
+- Gerar e aplicar a migration inicial com Alembic.
+- Criar blueprints e rotas da API Flask.
+- Implementar endpoints CRUD para as entidades principais.
 - Testar os endpoints da API.
-- Criar uma interface web para o sistema imobiliario.
-- Evoluir os testes para uma estrutura mais automatizada.
+- Evoluir os testes para uma estrutura automatizada com `pytest`.
+- Criar uma interface web para o sistema imobiliário.
 
 ## 📌 Autor
 Daniel Martins França
