@@ -11,8 +11,8 @@ class Contrato(db.Model):
     valor_transacao: Mapped[float] = mapped_column(Float, nullable=False)
     data_assinatura: Mapped[date] = mapped_column(Date, nullable=False)
 
-    id_cliente:Mapped[int | None] = mapped_column(
-        ForeignKey("clientes.id_clientes"),nullable=True)
+    cliente_id:Mapped[int | None] = mapped_column(
+        ForeignKey("clientes.id"),nullable=True)
     id_corretor: Mapped[int | None] = mapped_column(
         ForeignKey("corretores.id_corretor"), nullable=True)
     

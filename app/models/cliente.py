@@ -5,7 +5,7 @@ from app.extensions import db
 class Cliente(db.Model):
     __tablename__ = "clientes"
 
-    id_cliente: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
     nome: Mapped[str] = mapped_column(String(100),nullable=False)
     cpf: Mapped[str] = mapped_column(String(14),unique=True, nullable=False)
     telefone: Mapped[str | None] = mapped_column(String(20),nullable=True)

@@ -180,3 +180,79 @@ Dessa forma temos então esse fluxo lógico:
 modelagem/ -> fase inicial do banco e testes
 app/       -> aplicação Flask e API
 ```
+
+## Validação das Rotas Flask:
+
+Para validar se a aplicação Flask está sendo carregada corretamente, foi utilizado o comando:
+
+```python
+flask --app app:create_app routes
+```
+
+Esse comando usa a CLI do Flask para carregar a aplicação e listar todas as rotas registradas. A opção ```--app app:create_app``` informa ao Flask que a aplicação deve ser criada a partir da função ```create_app```, localizada no módulo/pacote app.
+
+Esse padrão é conhecido como ```Application Factory```, no qual a instância da aplicação Flask é criada dentro de uma função, em vez de ficar declarada diretamente como variável global. Segundo a documentação oficial do Flask, esse padrão facilita testes, configurações diferentes e melhor organização do projeto. 
+
+> Referência: Flask Application Factories.
+
+### A saída obtida foi:
+
+Endpoint  Methods  Rule
+--------  -------  -----------------------
+index     GET      /
+static    GET      /static/<path:filename>
+
+> Essa saída indica que o Flask conseguiu carregar a aplicação sem erro e identificou duas rotas:
+
+Endpoint	Método	Rota	Descrição
+index	GET	/	Rota principal da aplicação, geralmente responsável por exibir a página inicial.
+static	GET	/static/<path:filename>	Rota automática criada pelo Flask para servir arquivos estáticos, como CSS, JavaScript e imagens.
+
+Portanto, a validação confirma que:
+
+- A aplicação Flask foi carregada corretamente pela função create_app.
+- A rota principal / está registrada.
+- O método HTTP permitido para a rota principal é GET.
+- A configuração padrão de arquivos estáticos do Flask está ativa.
+
+> Não foram identificadas, nesse momento, outras rotas cadastradas no projeto.
+
+*É importante destacar que esse comando não testa o funcionamento interno da página, banco de dados, formulários ou regras de negócio. Ele apenas valida o registro das rotas dentro da aplicação Flask. Para uma validação mais completa, também podem ser feitos testes acessando a aplicação no navegador ou utilizando testes automatizados com pytest e o test_client do Flask.*
+
+A documentação da CLI do Flask explica que --app define como o Flask deve localizar e carregar a aplicação, podendo apontar para uma instância ou para uma factory como create_app. Referência: Flask Command Line Interface.
+
+# Etapa 2 - Criação dos Models com Flask-SQLAlchemy
+
+Nesta etapa, os modelos da aplicação foram criados dentro da pasta `app/models/`, utilizando o `db` central definido em `app/extensions.py`.
+
+*O objetivo é adaptar a estrutura de entidades da fase inicial de modelagem para o padrão usado pelo Flask-SQLAlchemy, permitindo que o Flask-Migrate e o Alembic detectem corretamente as tabelas e gerem as migrations do banco de dados.*
+
+## Etapa 03 - Validação e criação das tabelas e do banco:
+
+```flask --app app:create_app db migrate -m "create initial tables"```
+
+O comando é usado para gerar uma nova migration do banco de dados com base nas diferenças entre os models da aplicação Flask e o estado atual do banco.
+
+A opção ```--app app:create_app```informa ao Flask que a aplicação deve ser carregada a partir da função ```create_app```, dentro do pacote app.
+
+O trecho ```db migrate``` vem do Flask-Migrate e executa o processo de autogeração de migration usando o Alembic. A opção -m ```"create initial tables"``` adiciona uma mensagem descritiva à migration. Nesse caso, a mensagem indica que a migration tem como objetivo criar as tabelas iniciais do projeto.
+
+Em resumo:
+
+- carrega a aplicação Flask;
+- acessa a configuração do banco;
+- lê os models registrados no db.metadata;
+- compara os models com o banco atual;
+- gera um arquivo de migration dentro da pasta migrations/versions;
+
+*No seu caso, o comando foi importante porque validou que o Flask-Migrate estava configurado e conseguia iniciar o processo de autogeração. Porém, ele também revelou inconsistências nas ForeignKey, como referências para colunas inexistentes em clientes.*
+
+> Assim o comando não apenas cria migrations; ele também ajuda a validar se os relacionamentos entre os models estão coerentes.
+
+# Etapa 4 - Criação das Rotas da API Flask
+
+Após a criação e validação dos models com Flask-SQLAlchemy e Flask-Migrate, a próxima etapa será a criação das rotas da API.
+
+As rotas serão responsáveis por expor as operações da aplicação para acesso via HTTP, permitindo consultar, cadastrar, atualizar e remover registros relacionados à imobiliária.
+
+Nesta etapa, o Flask será utilizado para registrar endpoints da API, enquanto o comando `flask --app app:create_app routes` será usado para validar se as rotas foram carregadas corretamente.
